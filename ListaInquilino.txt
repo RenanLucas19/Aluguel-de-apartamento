@@ -1,49 +1,0 @@
- Nome:lucas Olliver
-Data:10 / 3 / 2002
-Documento:258.123.125-z
-Apartamento:122
-  Nome:Lucas Olliver
-Data:10 / 11 / 2002
-Documento:123.123.456-z
-Apartamento:122
-  Nome:Renan Olliver
-Data:10 / 11 / 2002
-Documento:123.456.789-z
-Apartamento:122
-  Disponibilidade:Sim
- Codigo:7218324
-Localizacao:
-Re
-Preco:0.000000
-Inquilino:‹ψ…ÿu7j[9=lVwtVθ‰ΧÿÿY…ΐ…xÿÿÿλƒψu½Vθzώÿÿλ®θλώÿ‰θλώÿ‰‹Η_[λVθWΧÿÿYθλώÿΗ
-  Nome:renan
-Data:11 / 11 / 2002
-Documento:123.456.789-z
-Apartamento:122
-  Disponibilidade:sim
- Codigo:11086820
-Localizacao:
-re
-Preco:0.000000
-Inquilino:‹ψ…ÿu7j[9=lVwtVθ‰ΧÿÿY…ΐ…xÿÿÿλƒψu½Vθzώÿÿλ®θλώÿ‰θλώÿ‰‹Η_[λVθWΧÿÿYθλώÿΗ
-  Nome:renan
-Data:11 / 12 / 2002
-Documento:123.456.789-
-Apartamento:13
-  Nome:lucas
-Data:11 / 12 / 2002
-Documento:111.222.333-z
-Apartamento:122
-  Nome:lucas
-Data:11 / 11 / 2002
-Documento:111.111.111-{
-Apartamento:123
-  Nome:lucas
-Data:11 / 12 / 2002
-Documento:111.222.333-z
-Apartamento:122
-  sim
-123
-sp
-lucas
-135.000000 

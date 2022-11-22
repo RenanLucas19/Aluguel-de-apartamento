@@ -142,7 +142,7 @@ void EditarAp(Lista2* l){
 	for(p=l; p!=NULL; p=p->prox){
 		
 		if(p->dado->codigo == cod ){
-			printf("Apartamento encontrado !\n");aa
+			printf("Apartamento encontrado !\n");
 			
 			printf("Digite o codigo :\n");
 			scanf("%d", &p->dado->codigo);

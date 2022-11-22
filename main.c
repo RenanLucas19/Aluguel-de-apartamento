@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
-#include "Inquilino.c"
-#include "Apartamento.c"
+#include "Inquilino.h"
+#include "Apartamento.h"
 
 
 #define TITULO_OPCAO1 "Adicionar Inquilino"
