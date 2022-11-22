@@ -34,21 +34,22 @@ Apartamento * AdicionaAp(void){
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                        CADASTRO DO APARTAMENTO                          |");
     	printf("\n    #-------------------------------------------------------------------------#");
-	  
-	    printf("\n\n  > Informe o numero/codigo : ");
+	  	printf("\n");
+	  	
+	    printf("\n> Informe o numero/codigo : ");
         scanf("%d", &apa->codigo);
 		
-        printf("\n\n  > Disponibilidade : ");
+        printf("\n\> Disponibilidade : ");
         scanf(" %[^\n]", &apa->disponibilidade);
         
         
-        printf("\n\n  > Informe o preco do aluguel: R$ ");
+        printf("\n\> Informe o preco do aluguel: R$ ");
         scanf("%f", &apa->preco);
         
-        printf("\n\n  > Informe a localizacao : ");
+        printf("\n> Informe a localizacao : ");
         scanf(" %[^\n]", &apa->localizacao);
         
-        printf("\n\n  > Informe o nome do Inquilino : ");
+        printf("\n> Informe o nome do Inquilino : ");
         scanf(" %[^\n]", &apa->inquilino);
         
         
@@ -59,7 +60,7 @@ Apartamento * AdicionaAp(void){
         	printf("Erro ao abrir o arquivo!");
         	exit(1);
     }
-    	fprintf(arquivo, " Disponibilidade:%s\ncodigo:%d\nlocalizacao:%s\nInquilino:%s\nPreco:%f\n " , apa->disponibilidade , apa->codigo, apa->localizacao, apa->inquilino, apa->preco);
+    	fprintf(arquivo, "Disponibilidade:%s\ncodigo:%d\nlocalizacao:%s\nInquilino:%s\nPreco:%f\n " , apa->disponibilidade , apa->codigo, apa->localizacao, apa->inquilino, apa->preco);
         printf("\n");
         printf("Os dados foram adicionado ao arquivo!\n");
         printf("\n\n");
@@ -120,30 +121,21 @@ return l;
 	 Lista2* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(p-> dado->codigo == cod){
-		 	
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                 CODIGO %s DO APARTAMENTO FOI ENCONTRADO !               |",cod);
-    	printf("\n    #-------------------------------------------------------------------------#");
-		printf("\n\n");
-
+		 	printf("Codigo %d encontrado!\n",cod);
+		 	printf("\n\n");
 			 return p;
 		 }
 
 	 }
-	 
-	 	printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                  NUMERO DO APARTAMENTO NAO ENCONTRADO!                  |");
-    	printf("\n    #-------------------------------------------------------------------------#");
-	 	Printf("\n\n");
+	 printf("codigo nao encontrado!\n");
+	 printf("\n\n");
 	 return NULL;
 }
 void EditarAp(Lista2* l){
 	
 	int cod = 0;
 	
-	printf("\n Informe o numero do codigo anterior para alteracao : ");
+	printf("\n Informe o numero do codigo anterior para alteracao : \n");
 	scanf("%d",&cod);
 	
 	Lista2* p;
@@ -151,24 +143,18 @@ void EditarAp(Lista2* l){
 	for(p=l; p!=NULL; p=p->prox){
 		
 		if(p->dado->codigo == cod ){
-
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                        APARTAMENTO ENCONTRADO                           |");
-    	printf("\n    #-------------------------------------------------------------------------#");
-	    printf("\n");
+			printf("Apartamento encontrado !\n");
 			
-			printf("\nDigite o codigo : ");
+			printf("Digite o codigo :\n");
 			scanf("%d", &p->dado->codigo);
-			printf("\nInforme a disponibilidade do apartamento : ");
+			printf("Informe a disponibilidade do apartamento :\n");
 			scanf(" %s",&p->dado->disponibilidade);
-			printf("\nInforme o preco do aluguel : ");
+			printf("Informe o preco do aluguel :\n");
 			scanf("%f", &p->dado->preco);
-			printf("\n Informe a localizacao : ");
+			printf("Informe a localizacao :\n");
 			scanf(" %[^\n]",p->dado->localizacao);
-			printf("\n Informe o nome do inquilino : ");
+			printf("Informe o nome do inquilino :\n");
 			scanf(" %[^\n]", p->dado->inquilino);
-			printf("\n");
 			
 		}
 	}		
@@ -182,26 +168,6 @@ void disponivel(Lista2 * l){
 	for (p=l; p!=NULL; p=p->prox){
 		ap--;
 	}
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |               QUANTIDADE DE APARTAMENTOS DISPONIVEIS  : %d              |",ap);
-    	printf("\n    #-------------------------------------------------------------------------#");
-	    printf("\n");
+printf("Quantidade de apartamentos disponiveis e : %d\n" ,ap);
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

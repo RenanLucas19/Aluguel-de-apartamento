@@ -6,14 +6,14 @@
 #include "Apartamento.h"
 
 
-#define TITULO_OPCAO1 "Adicionar Inquilino"
-#define TITULO_OPCAO2 "Excluir Inquilino"
-#define TITULO_OPCAO3 "Listar Inquilino"
-#define TITULO_OPCAO4 "Buscar Inquilino"
-#define TITULO_OPCAO5 "Editar inquilino"
-#define TITULO_OPCAO6 "Consultar apartamentos disponiveis "
-#define TITULO_OPCAO7 "Consultar quantitativo de inquilinos"
-#define TITULO_OPCAO8 "Sair"
+#define TITULO_OPCAO1 "ADICIONAR INQUILINO "
+#define TITULO_OPCAO2 "EXCLUIR INQUILINO "
+#define TITULO_OPCAO3 "LISTAR INQUILINO "
+#define TITULO_OPCAO4 "BUSCAR INQUILINO "
+#define TITULO_OPCAO5 "EDITAR INQUILINO "
+#define TITULO_OPCAO6 "CONSULTAR APARTAMENTOS DISPONIVEIS  "
+#define TITULO_OPCAO7 "CONSULTAR QUANTITATIVO DE INQUILINOS "
+#define TITULO_OPCAO8 "SAIR "
 
 
 #define N_OPCOES 8
@@ -93,17 +93,24 @@ int main(void) {
 	char nome[50];
 	int codigo;
 	
+		printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
+    	
     do {
         ApresentaMenu(N_OPCOES, OPCAO1,
                       TITULO_OPCAO1, TITULO_OPCAO2,
                       TITULO_OPCAO3, TITULO_OPCAO4,TITULO_OPCAO5, TITULO_OPCAO6, TITULO_OPCAO7, TITULO_OPCAO8 );
         op = LeOpcao(OPCAO1, OPCAO1 + N_OPCOES - 1);
+        
         switch(op) {
             case OPCAO1:
                 Beep(1000,500); /* Emite um beep */
         printf("\n");        
         printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                      CADASTRO DE INQUILINO                              |");
+    	printf("\n    |                       ADICIONAR INQUILINO                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
               CadastroInquilino = lst_insere(CadastroInquilino);
               CadastroApartamento = InsereAp(CadastroApartamento);
@@ -127,6 +134,10 @@ int main(void) {
         scanf("%d", &codigo);
         
         CadastroApartamento = ExcluirAp(CadastroApartamento, codigo);
+        printf("\n\n");
+        printf("Inquilino exluido com sucesso!");
+        printf("\n");
+        
 
                 break;
 
@@ -140,6 +151,12 @@ int main(void) {
     		ListarInquilino(CadastroInquilino);
     		OrdenaInq (CadastroInquilino, codigo);
     		printf("\n");
+    		
+    	printf("\n");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                       LISTAR APARTAMENTOS                               |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
     		ListarAp(CadastroApartamento);
     		printf("\n");
                 break;

@@ -108,7 +108,7 @@ return l;
 void ListarInquilino ( Lista * l){
 	Lista *inq;
 	for (inq=l; inq!=NULL; inq=inq->prox){
-		printf("\nNome:%s\nData de entrada:%d/%d/%d\n Data de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
+		printf("\nNome:%s\nData de entrada:%d/%d/%d\nData de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
 		}
 }
 
@@ -116,28 +116,20 @@ Lista *lst_buscar(Lista *l){
 
 	char nome[50];
 	
-	printf(" Informe o nome do inquilino que deseja buscar: \n");
+	printf("Informe o nome do inquilino que deseja buscar: \n");
 	scanf(" %[^\n]", &nome);
 	 
 	 Lista* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(strcmp(p-> info->nome, nome)==0){
-
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                       NOME %s FOI ENCONTRADO !                          |", nome);
-    	printf("\n    #-------------------------------------------------------------------------#");
-		printf("\n\n");
-
+		 	printf(" \nNome %s foi encontrado!\n", nome);
+		 	printf("\n\n");
 			 return p;
 		 }
 	 }
 	 
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                  NOME DO INQUILINO NAO ENCONTRADO !                     |");
-    	printf("\n    #-------------------------------------------------------------------------#");
-	    printf("\n");
+	 printf("Nome nao encontrado!");
+
 	 return NULL;
 }
 
@@ -145,7 +137,7 @@ void EditarInq(Lista*l){
 	
 	int num;
 	
-	printf("Digite o numero anterior do apartamento para editar : ");
+	printf("Digite o numero anterior do apartamento para editar : \n");
 	scanf("%d",&num);
 	
 	Lista*p;
@@ -159,15 +151,15 @@ void EditarInq(Lista*l){
     	printf("\n    #-------------------------------------------------------------------------#");
 	    printf("\n");
 		
-			printf("\n Informe o novo nome do inquilino : ");
+			printf(" Informe o novo nome do inquilino : ");
 			scanf(" %[^\n]",p->info->nome);
-			printf("\n Informe a nova data do contrato : ");
+			printf(" Informe a nova data do contrato : \n");
 			scanf("%d%d%d", &p->info->dia,&p->info->mes,&p->info->ano);
-			printf("\n Informe a nova duracao do contrato : ");
+			printf("Informe a nova duracao do contrato : \n");
 			scanf("%d%d%d", &p->info->d,&p->info->m,&p->info->a);
-			printf("\n Informe o novo documento -> CPF : ");
+			printf("Informe o novo documento -> CPF :\n");
 			scanf("%d", &p->info->documento);
-			printf("\n Informe o numero novo do apartamento : ");
+			printf("Informe o numero novo do apartamento : \n");
 			scanf("%d", &p->info->apartamento);
 			printf("\n");
 		}
@@ -185,12 +177,7 @@ void quant(Lista* l){
 		i++;
 		
 	}
-
-		printf("\n");
-		printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                  A QUANTIDADE DE INQUILINOS E : %d                      |", i);
-    	printf("\n    #-------------------------------------------------------------------------#");
-	    printf("\n");
+	printf("A quantidade de inquilino e : %d\n ", i);
 	
 }
 
@@ -218,3 +205,4 @@ Lista* OrdenaInq (Lista * l, int inq ){
 
 return l;	
 }
+
