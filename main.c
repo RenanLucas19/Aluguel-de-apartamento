@@ -101,13 +101,17 @@ int main(void) {
         switch(op) {
             case OPCAO1:
                 Beep(1000,500); /* Emite um beep */
+        printf("\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                      CADASTRO DE INQUILINO                              |");
+    	printf("\n    #-------------------------------------------------------------------------#");
               CadastroInquilino = lst_insere(CadastroInquilino);
               CadastroApartamento = InsereAp(CadastroApartamento);
               
 				break;
             case OPCAO2:
                 Beep(1000,500);
-             
+        printf("\n");     
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                         EXCLUIR INQUILINO                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
@@ -128,12 +132,13 @@ int main(void) {
 
             case OPCAO3:
                 Beep(1000,500);
-                 
+        printf("\n");
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                         LISTAR INQUILINOS                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n");
     		ListarInquilino(CadastroInquilino);
+    		OrdenaInq (CadastroInquilino, codigo);
     		printf("\n");
     		ListarAp(CadastroApartamento);
     		printf("\n");
@@ -141,11 +146,11 @@ int main(void) {
 
             case OPCAO4:
                 Beep(1000,500);
-                         
+        printf("\n");                 
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                         BUSCAR INQUILINOS                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n");
+    	printf("\n\n");
                 
              CadastroInquilino = lst_buscar(CadastroInquilino);
 		  	 CadastroApartamento = l_buscar(CadastroApartamento);
@@ -153,40 +158,43 @@ int main(void) {
                 break;
              case OPCAO5:
                 Beep(1000,500);
-                                  
+        printf("\n");                          
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                         EDITAR INQUILINOS                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n");
+    	printf("\n\n");
                 
                EditarInq( CadastroInquilino);
                EditarAp(CadastroApartamento );
                 break;
            
              case OPCAO6:
-              Beep(1000,500);  
+              Beep(1000,500); 
+		printf("\n");	   
         printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                      CONSULTAR APARTAMENTO DISPONIVEL                   |");
     	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n");  
+    	printf("\n\n");  
 		 	
               disponivel(CadastroApartamento );
                 break;
           
                  case OPCAO7:
                 Beep(1000,500);
+        printf("\n");        
 		printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                   CONSULTAR QUANTIDADE DE INQUILINOS                    |");
     	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n");
+    	printf("\n\n");
                quant(CadastroInquilino);
                
                 break;
              case OPCAO8:
+        printf("\n");     	
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                            PROGRAMA ENCERRADO                           |");
     	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n");
+    	printf("\n\n");
               saida = 1;
                 Beep(1000,500);
                 printf("Obrigado por usar este programa feito por LUCAS OLIVEIRA!!\n");
