@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 typedef struct Inquilino inquilino;
 
 typedef struct lista Lista;
