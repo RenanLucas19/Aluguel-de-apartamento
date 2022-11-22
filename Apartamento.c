@@ -2,35 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Apartamento.h"
-#define MAXTAM 4
 
-struct apartamento {
+
+struct apartamento{
 	int codigo;
-	char disponibilidade[MAXTAM];
+	char disponibilidade[50];
 	float preco;
 	char localizacao[10];
 	char inquilino[60];
 };
 
 struct lista2{
-	Apartamento *Dado;
-	struct Lista2 *prox;
+	Apartamento *dado;
+	struct lista2 *prox;
 };
 
-
-
-Lista2 * list_cria(void){
+Lista2* list_cria(void){
 	return NULL;
-}
-
-Lista2 * InsereAp (Lista2* l){
-	
-	Apartamento * Ap = AdicionaAp();
-	 Lista2 *novo = (Lista2*)malloc(sizeof(Lista2));
-	 novo -> Dado = Ap;
-	 novo -> prox = l;
-	
-	return novo;
 }
 	
 Apartamento * AdicionaAp(void){
@@ -40,48 +28,161 @@ Apartamento * AdicionaAp(void){
 	if(apa == NULL){
 		printf("ERRO AO ALOCAR MEMORIA!");
 		exit(1);
-	}else
-	{
+	}
 	
-    FILE *arquivo;
-    
-    arquivo = fopen("ListaInquilino.txt" , "a");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo!");
-        exit(1);
-    }
-    else{
-
-	system("cls");
+		
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                        CADASTRO DO APARTAMENTO                          |");
     	printf("\n    #-------------------------------------------------------------------------#");
-	
-		printf("\n\n  > Disponibilidade : ");
-        scanf("%s", &apa->disponibilidade);
-        
-        
-        printf("\n\n  > Informe o numero/codigo : ");
+	  
+	    printf("\n\n  > Informe o numero/codigo : ");
         scanf("%d", &apa->codigo);
+		
+        printf("\n\n  > Disponibilidade : ");
+        scanf(" %[^\n]", &apa->disponibilidade);
         
-        printf("\n\n  > Informe a localizacao : ");
-        scanf("%s", &apa->localizacao);
         
-        printf("\n\n  > Informe o preco do aluguel: R$  ");
+        printf("\n\n  > Informe o preco do aluguel: R$ ");
         scanf("%f", &apa->preco);
         
-        printf("\n\n  > Informe o Inquilino : ");
-        scanf("%[^/n]", &apa->inquilino);
+        printf("\n\n  > Informe a localizacao : ");
+        scanf(" %[^\n]", &apa->localizacao);
         
-    	fprintf(arquivo, " Disponibilidade:%s\n Codigo:%d\nLocalizacao:%s\nPreco:%f\nInquilino:%s\n " , apa->disponibilidade , apa->codigo, apa->localizacao, apa->preco , apa->inquilino);
-		printf("Os Dados foram adicionado ao arquivo!\n");
- 		}
-	
- fclose(arquivo);
- 	}
+        printf("\n\n  > Informe o nome do Inquilino : ");
+        scanf(" %[^\n]", &apa->inquilino);
+        
+        
+    
+		FILE *arquivo;
+ 		arquivo = fopen("ListaInquilino.txt" , "a");
+    	if (arquivo == NULL) {
+        	printf("Erro ao abrir o arquivo!");
+        	exit(1);
+    }
+    	fprintf(arquivo, " Disponibilidade:%s\ncodigo:%d\nlocalizacao:%s\nInquilino:%s\nPreco:%f\n " , apa->disponibilidade , apa->codigo, apa->localizacao, apa->inquilino, apa->preco);
+        printf("\n");
+        printf("Os dados foram adicionado ao arquivo!\n");
+        printf("\n\n");
+
+ 	 fclose(arquivo);
+
  	return apa;
 }
 
-int list_vazia(Lista2 *list){
-	return (list==NULL);
+Lista2* InsereAp (Lista2* l){
+	
+	Apartamento * Ap = AdicionaAp();
+	 Lista2 *novo = (Lista2*)malloc(sizeof(Lista2));
+	 novo -> dado = Ap;
+	 novo -> prox = l;
+	
+	return novo;
 }
+
+int list_vazia(Lista2 *l){
+	return (l==NULL);
+}
+
+void ListarAp(Lista2* l){
+	Lista2*apa;
+	for(apa=l; apa!=NULL; apa=apa->prox){
+		printf("\nDisponibilidade:%s\ncodigo:%d\nlocalizacao:%s\nInquilino:%s\nPreco:%f\n " , apa->dado->disponibilidade , apa->dado->codigo, apa->dado->localizacao, apa->dado->inquilino, apa->dado->preco);
+	}
+}
+
+Lista2 * ExcluirAp( Lista2* l, int codigo){
+
+	Lista2 * antes = NULL;
+	Lista2 * apa = l;
+
+	while( apa->dado->codigo != codigo){
+		if(apa == NULL)
+			return l;
+	
+		antes = apa;
+		apa = apa->prox;
+	}
+	if(antes == NULL){
+		l = apa->prox;
+	}else{
+		antes->prox = apa->prox;
+	}
+free(apa);
+return l;
+
+}
+
+	Lista2 *l_buscar(Lista2 *l){
+	int cod;
+	printf("informe o codigo do apartamento que deseja buscar: \n");
+	scanf("%d", &cod);
+	 
+	 Lista2* p;
+	 for (p=l; p!=NULL; p=p->prox){
+		 if(p-> dado->codigo == cod){
+		 	printf("Codigo %d encontrado!\n",cod);
+		 	printf("\n\n");
+			 return p;
+		 }
+
+	 }
+	 printf("codigo nao encontrado!\n");
+	 printf("\n\n");
+	 return NULL;
+}
+void EditarAp(Lista2* l){
+	
+	int cod = 0;
+	
+	printf("\n Informe o numero do codigo anterior para alteracao : \n");
+	scanf("%d",&cod);
+	
+	Lista2* p;
+	
+	for(p=l; p!=NULL; p=p->prox){
+		
+		if(p->dado->codigo == cod ){
+			printf("Apartamento encontrado !\n");aa
+			
+			printf("Digite o codigo :\n");
+			scanf("%d", &p->dado->codigo);
+			printf("Informe a disponibilidade do apartamento :\n");
+			scanf(" %s",&p->dado->disponibilidade);
+			printf("Informe o preco do aluguel :\n");
+			scanf("%f", &p->dado->preco);
+			printf("Informe a localizacao :\n");
+			scanf(" %[^\n]",p->dado->localizacao);
+			printf("Informe o nome do inquilino :\n");
+			scanf(" %[^\n]", p->dado->inquilino);
+			
+		}
+	}		
+}
+void disponivel(Lista2 * l){
+	
+	Lista2 * p;
+	
+	int ap = 50;
+	
+	for (p=l; p!=NULL; p=p->prox){
+		ap--;
+	}
+printf("Quantidade de apartamentos disponiveis e : %d\n" ,ap);
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

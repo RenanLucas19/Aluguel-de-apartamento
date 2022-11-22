@@ -2,17 +2,19 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
-#include "Inquilino.h"
-#include "Apartamento.h"
+#include "Inquilino.c"
+#include "Apartamento.c"
+
 
 #define TITULO_OPCAO1 "Adicionar Inquilino"
 #define TITULO_OPCAO2 "Excluir Inquilino"
 #define TITULO_OPCAO3 "Listar Inquilino"
 #define TITULO_OPCAO4 "Buscar Inquilino"
 #define TITULO_OPCAO5 "Editar inquilino"
-#define TITULO_OPCAO6 "Consultar apartamento disponiveis"
+#define TITULO_OPCAO6 "Consultar apartamentos disponiveis "
 #define TITULO_OPCAO7 "Consultar quantitativo de inquilinos"
 #define TITULO_OPCAO8 "Sair"
+
 
 #define N_OPCOES 8
 #define OPCAO1 '1'
@@ -88,6 +90,8 @@ int main(void) {
     unsigned int saida = 0; //
 	Lista * CadastroInquilino = lst_cria();
 	Lista2 * CadastroApartamento = list_cria();
+	char nome[50];
+	int codigo;
 	
     do {
         ApresentaMenu(N_OPCOES, OPCAO1,
@@ -97,41 +101,95 @@ int main(void) {
         switch(op) {
             case OPCAO1:
                 Beep(1000,500); /* Emite um beep */
-               CadastroInquilino = lst_insere(CadastroInquilino);
-               CadastroApartamento = InsereAp(CadastroApartamento);
-               
+              CadastroInquilino = lst_insere(CadastroInquilino);
+              CadastroApartamento = InsereAp(CadastroApartamento);
+              
 				break;
             case OPCAO2:
                 Beep(1000,500);
-               
+             
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                         EXCLUIR INQUILINO                               |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
+    	
+      
+         printf("Informe o nome do inquilino para a excluir : ");
+        scanf(" %[^\n]", nome);
+        
+        CadastroInquilino = ExcluirInquilino(CadastroInquilino, nome);
+        
+        printf("Informe o codigo do apartamento do inquilino para a excluir : ");
+        scanf("%d", &codigo);
+        
+        CadastroApartamento = ExcluirAp(CadastroApartamento, codigo);
+
                 break;
 
             case OPCAO3:
                 Beep(1000,500);
+                 
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                         LISTAR INQUILINOS                               |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
+    		ListarInquilino(CadastroInquilino);
+    		printf("\n");
+    		ListarAp(CadastroApartamento);
+    		printf("\n");
                 break;
 
             case OPCAO4:
                 Beep(1000,500);
-               
+                         
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                         BUSCAR INQUILINOS                               |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
+                
+             CadastroInquilino = lst_buscar(CadastroInquilino);
+		  	 CadastroApartamento = l_buscar(CadastroApartamento);
+			   
                 break;
              case OPCAO5:
                 Beep(1000,500);
-               
+                                  
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                         EDITAR INQUILINOS                               |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
+                
+               EditarInq( CadastroInquilino);
+               EditarAp(CadastroApartamento );
                 break;
            
              case OPCAO6:
-                Beep(1000,500);
-               
+              Beep(1000,500);  
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                      CONSULTAR APARTAMENTO DISPONIVEL                   |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");  
+		 	
+              disponivel(CadastroApartamento );
                 break;
-           
+          
                  case OPCAO7:
                 Beep(1000,500);
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                   CONSULTAR QUANTIDADE DE INQUILINOS                    |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
+               quant(CadastroInquilino);
                
                 break;
              case OPCAO8:
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                            PROGRAMA ENCERRADO                           |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n");
               saida = 1;
                 Beep(1000,500);
-                printf("Obrigado por usar este programa\n");
+                printf("Obrigado por usar este programa feito por LUCAS OLIVEIRA!!\n");
                
                 default:
                 printf("Este programa possui um bug.\n");
