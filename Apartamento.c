@@ -120,21 +120,30 @@ return l;
 	 Lista2* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(p-> dado->codigo == cod){
-		 	printf("Codigo %d encontrado!\n",cod);
-		 	printf("\n\n");
+		 	
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                 CODIGO %s DO APARTAMENTO FOI ENCONTRADO !               |",cod);
+    	printf("\n    #-------------------------------------------------------------------------#");
+		printf("\n\n");
+
 			 return p;
 		 }
 
 	 }
-	 printf("codigo nao encontrado!\n");
-	 printf("\n\n");
+	 
+	 	printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                  NUMERO DO APARTAMENTO NAO ENCONTRADO!                  |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+	 	Printf("\n\n");
 	 return NULL;
 }
 void EditarAp(Lista2* l){
 	
 	int cod = 0;
 	
-	printf("\n Informe o numero do codigo anterior para alteracao : \n");
+	printf("\n Informe o numero do codigo anterior para alteracao : ");
 	scanf("%d",&cod);
 	
 	Lista2* p;
@@ -142,18 +151,24 @@ void EditarAp(Lista2* l){
 	for(p=l; p!=NULL; p=p->prox){
 		
 		if(p->dado->codigo == cod ){
-			printf("Apartamento encontrado !\n");
+
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                        APARTAMENTO ENCONTRADO                           |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
 			
-			printf("Digite o codigo :\n");
+			printf("\nDigite o codigo : ");
 			scanf("%d", &p->dado->codigo);
-			printf("Informe a disponibilidade do apartamento :\n");
+			printf("\nInforme a disponibilidade do apartamento : ");
 			scanf(" %s",&p->dado->disponibilidade);
-			printf("Informe o preco do aluguel :\n");
+			printf("\nInforme o preco do aluguel : ");
 			scanf("%f", &p->dado->preco);
-			printf("Informe a localizacao :\n");
+			printf("\n Informe a localizacao : ");
 			scanf(" %[^\n]",p->dado->localizacao);
-			printf("Informe o nome do inquilino :\n");
+			printf("\n Informe o nome do inquilino : ");
 			scanf(" %[^\n]", p->dado->inquilino);
+			printf("\n");
 			
 		}
 	}		
@@ -167,7 +182,11 @@ void disponivel(Lista2 * l){
 	for (p=l; p!=NULL; p=p->prox){
 		ap--;
 	}
-printf("Quantidade de apartamentos disponiveis e : %d\n" ,ap);
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |               QUANTIDADE DE APARTAMENTOS DISPONIVEIS  : %d              |",ap);
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
 	
 }
 

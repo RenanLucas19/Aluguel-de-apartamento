@@ -41,24 +41,20 @@ inquilino * InsereDados(void){
 		printf("ERRO AO ALOCAR MEMORIA!");
 		exit(1);
 	}
-	     	
-    	printf("\n    #-------------------------------------------------------------------------#");
-    	printf("\n    |                      CADASTRO DE INQUILINO                              |");
-    	printf("\n    #-------------------------------------------------------------------------#");
-    	
-        printf("\n\n  > Informe o nome do Inquilino : ");
+	    printf("\n");
+        printf("\n> Informe o nome do Inquilino : ");
         scanf("%[^\n]", &Dado->nome);
         
-         printf("\n\n  > Formato : 00 00 0000\n\n > Informe a data de entrada : ");
+         printf("\n> Formato : 00 00 0000\n\n> Informe a data de entrada : ");
         scanf("%d%d%d",&Dado->dia,&Dado->mes,&Dado->ano );
     
-        printf("\n\n   > Formato : 00 00 0000\n\n > Informe a duracao de contrato : ");
+        printf("\n> Formato : 00 00 0000\n\n> Informe a duracao de contrato : ");
         scanf("%d%d%d",&Dado->d,&Dado->m,&Dado->a );
         
-        printf("\n\n   > formato : 00000000000 \n\n > Informe o CPF: ");
+        printf("\n> formato : 00000000000 \n\n> Informe o CPF: ");
         scanf(" %d", &Dado->documento);
         
-        printf("\n\n  > Numero do Apartamento : ");
+        printf("\n> Numero do Apartamento : ");
         scanf(" %d", &Dado->apartamento);
         printf("\n");
 
@@ -71,8 +67,8 @@ inquilino * InsereDados(void){
 	 }	
 	 
         fprintf(arquivo, "\n\nNome:%s\nData de entrada:%d/%d/%d\n data de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , Dado->nome,  &Dado->dia,&Dado->mes,&Dado->ano, &Dado->d,&Dado->m,&Dado->a,Dado->documento,Dado->apartamento);
-        printf("Dados adicionados ao arquivo!");
- 	 	
+        printf(" Dados adicionados ao arquivo!");
+ 	 	printf("\n");
   		fclose(arquivo);
 
 return Dado;
@@ -120,20 +116,28 @@ Lista *lst_buscar(Lista *l){
 
 	char nome[50];
 	
-	printf("informe o nome do inquilino que deseja buscar: \n");
+	printf(" Informe o nome do inquilino que deseja buscar: \n");
 	scanf(" %[^\n]", &nome);
 	 
 	 Lista* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(strcmp(p-> info->nome, nome)==0){
-		 	printf("nome %s foi encontrado!\n", nome);
-		 	printf("\n\n");
+
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                       NOME %s FOI ENCONTRADO !                          |", nome);
+    	printf("\n    #-------------------------------------------------------------------------#");
+		printf("\n\n");
+
 			 return p;
 		 }
 	 }
 	 
-	 printf("nome nao encontrado!");
-
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                  NOME DO INQUILINO NAO ENCONTRADO !                     |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
 	 return NULL;
 }
 
@@ -141,24 +145,31 @@ void EditarInq(Lista*l){
 	
 	int num;
 	
-	printf("Digite o numero do apartamento para buscar : \n");
+	printf("Digite o numero anterior do apartamento para editar : ");
 	scanf("%d",&num);
 	
 	Lista*p;
 	
 	for(p=l; p!=NULL; p=p->prox){
 		if(p->info->apartamento == num){
-			printf("Inquilino encontrado!\n");
-			printf("Informe o nome do inquilino : ");
+		
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                        INQUILINO ENCONTRADO                             |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
+		
+			printf("\n Informe o novo nome do inquilino : ");
 			scanf(" %[^\n]",p->info->nome);
-			printf("Informe a data do contrato : \n");
+			printf("\n Informe a nova data do contrato : ");
 			scanf("%d%d%d", &p->info->dia,&p->info->mes,&p->info->ano);
-			printf("Informe a duracao do contrato : \n");
+			printf("\n Informe a nova duracao do contrato : ");
 			scanf("%d%d%d", &p->info->d,&p->info->m,&p->info->a);
-			printf("Informe o documento -> CPF :\n");
+			printf("\n Informe o novo documento -> CPF : ");
 			scanf("%d", &p->info->documento);
-			printf("Informe o numero do apartamento : \n");
+			printf("\n Informe o numero novo do apartamento : ");
 			scanf("%d", &p->info->apartamento);
+			printf("\n");
 		}
 		
 	}
@@ -174,19 +185,36 @@ void quant(Lista* l){
 		i++;
 		
 	}
-	printf("A quantidade de inquilino e : %d\n ", i);
+
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                  A QUANTIDADE DE INQUILINOS E : %d                      |", i);
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
 	
 }
 
+Lista* OrdenaInq (Lista * l, int inq ){
+	Lista * novo;
+	Lista * antes = NULL;
+	Lista * p = l;
+	
+	while(p!=NULL && p->info<inq){
+		antes = p;
+		p = p->prox;
+		
+	}
+	novo = (Lista*)malloc(sizeof(Lista));
+	novo->info = inq;
+	if(antes == NULL){
+		novo->prox = l;
+		l = novo;
+	}
+	else{
+		
+		novo->prox = antes->prox;
+		antes->prox = novo;
+	}
 
-
-
-
-
-
-
-
-
-
-
-
+return l;	
+}

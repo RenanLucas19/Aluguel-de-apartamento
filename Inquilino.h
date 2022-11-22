@@ -16,3 +16,4 @@ void ListarInquilino ( Lista * l);
 Lista *lst_buscar(Lista*l);
 void EditarInq(Lista*l);
 void quant(Lista* l);
+Lista* OrdenaInq (Lista * l, int inq );
