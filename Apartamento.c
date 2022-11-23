@@ -121,13 +121,13 @@ return l;
 	 Lista2* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(p-> dado->codigo == cod){
-		 	printf("Codigo %d encontrado!\n",cod);
+		 	printf("Codigo do apartamento %d encontrado!\n",cod);
 		 	printf("\n\n");
 			 return p;
 		 }
 
 	 }
-	 printf("codigo nao encontrado!\n");
+	 printf("codigo do apartamento nao encontrado!\n");
 	 printf("\n\n");
 	 return NULL;
 }
@@ -143,17 +143,22 @@ void EditarAp(Lista2* l){
 	for(p=l; p!=NULL; p=p->prox){
 		
 		if(p->dado->codigo == cod ){
-			printf("Apartamento encontrado !\n");
-			
-			printf("Digite o codigo :\n");
+		
+		printf("\n");
+		printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                        APARTAMENTO ENCONTRADO                           |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+	    printf("\n");
+		
+			printf("Digite o novocodigo : ");
 			scanf("%d", &p->dado->codigo);
 			printf("Informe a disponibilidade do apartamento :\n");
 			scanf(" %s",&p->dado->disponibilidade);
-			printf("Informe o preco do aluguel :\n");
+			printf("Informe o novo preco do aluguel :\n");
 			scanf("%f", &p->dado->preco);
-			printf("Informe a localizacao :\n");
+			printf("Informe a nova localizacao :\n");
 			scanf(" %[^\n]",p->dado->localizacao);
-			printf("Informe o nome do inquilino :\n");
+			printf("Informe o novo nome do inquilino :\n");
 			scanf(" %[^\n]", p->dado->inquilino);
 			
 		}

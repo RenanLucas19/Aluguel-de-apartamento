@@ -25,26 +25,14 @@
 #define OPCAO6 '6'
 #define OPCAO7 '7'
 #define OPCAO8 '8'
-/****
-* Fun??o: LimpaBuffer()
-* Descri??o: L? e descarta caracteres encontrados na entrada
-* Par?metros: Nenhum
-* Retorno: Nada
-****/
+
 void LimpaBuffer(void) {
-    int valorLido; /* valorLido deve ser int! */
+    int valorLido; 
     do {
         valorLido = getchar();
     } while ((valorLido != '\n') && (valorLido != EOF));
 }
-/****
-* Fun??o: LeOpcao()
-* Descri??o: L? e valida a op??o digitada pelo usu?rio
-* Par?metros:
-*   menorValor (entrada): o menor valor v?lido
-*   maiorValor (entrada): o maior valor v?lido
-* Retorno: A op??o lida ? validada
-****/
+
 int LeOpcao(int menorValor, int maiorValor) {
     int op;
     while (1) {
@@ -63,30 +51,21 @@ int LeOpcao(int menorValor, int maiorValor) {
     }
     return op;
 }
-/****
-* Fun??o: ApresentaMenu
-* Descri??o: Apresenta menu com n?mero indeterminado de op??es
-* Par?metros:
-*   nItens (entrada): n?mero de itens no menu
-*   menorOpcao (entrada): caractere associado ao item I
-* Retorno: Nada
-****/
+
 void ApresentaMenu(int nItens, int menorOpcao, ...) {
     int i;
     va_list argumentos;
-    /* Inicia lista de argumentos vari?veis */
+   
     va_start(argumentos, menorOpcao);
-    /* L? cada argumento e imprime na tela. Note que o */
-    /* tipo de cada argumento ? char *, que ? o tipo que */
-    /* representa strings em C */
+
     for(i = 0; i < nItens; ++i) {
         printf("%c-%s\n", menorOpcao++, va_arg(argumentos, char *));
     }
-    va_end(argumentos);/* Encerra processamento de argumentos */
+    va_end(argumentos);
 }
 
 int main(void) {
-    unsigned char op; // variavel para armazenar a op??o digitalizada pelo usuario
+    unsigned char op;
     unsigned int saida = 0; //
 	Lista * CadastroInquilino = lst_cria();
 	Lista2 * CadastroApartamento = list_cria();
@@ -107,14 +86,20 @@ int main(void) {
         
         switch(op) {
             case OPCAO1:
-                Beep(1000,500); /* Emite um beep */
+                Beep(1000,500); 
         printf("\n");        
         printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n    |                       ADICIONAR INQUILINO                               |");
     	printf("\n    #-------------------------------------------------------------------------#");
               CadastroInquilino = lst_insere(CadastroInquilino);
               CadastroApartamento = InsereAp(CadastroApartamento);
-              
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
+
 				break;
             case OPCAO2:
                 Beep(1000,500);
@@ -138,6 +123,11 @@ int main(void) {
         printf("Inquilino exluido com sucesso!");
         printf("\n");
         
+         printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
 
                 break;
 
@@ -149,7 +139,6 @@ int main(void) {
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n");
     		ListarInquilino(CadastroInquilino);
-    		
     		printf("\n");
     		
     	printf("\n");
@@ -159,6 +148,13 @@ int main(void) {
     	printf("\n");
     		ListarAp(CadastroApartamento);
     		printf("\n");
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
+
                 break;
 
             case OPCAO4:
@@ -172,6 +168,13 @@ int main(void) {
              CadastroInquilino = lst_buscar(CadastroInquilino);
 		  	 CadastroApartamento = l_buscar(CadastroApartamento);
 			   
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
+
                 break;
              case OPCAO5:
                 Beep(1000,500);
@@ -184,6 +187,12 @@ int main(void) {
                EditarInq( CadastroInquilino);
                EditarAp(CadastroApartamento );
                 break;
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
            
              case OPCAO6:
               Beep(1000,500); 
@@ -194,6 +203,12 @@ int main(void) {
     	printf("\n\n");  
 		 	
               disponivel(CadastroApartamento );
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
                 break;
           
                  case OPCAO7:
@@ -204,6 +219,12 @@ int main(void) {
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n\n");
                quant(CadastroInquilino);
+
+        printf("\n\n");        
+        printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n    |                SISTEMA DE ALUGUEL DE APARTAMENTO                        |");
+    	printf("\n    #-------------------------------------------------------------------------#");
+    	printf("\n\n");
                
                 break;
              case OPCAO8:
@@ -214,7 +235,7 @@ int main(void) {
     	printf("\n\n");
               saida = 1;
                 Beep(1000,500);
-                printf("Obrigado por usar este programa feito por LUCAS OLIVEIRA!!\n");
+                printf("Obrigado por usar este programa !!\n");
                
                 default:
                 printf("Este programa possui um bug.\n");

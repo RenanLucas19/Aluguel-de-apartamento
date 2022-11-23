@@ -108,7 +108,7 @@ return l;
 void ListarInquilino ( Lista * l){
 	Lista *inq;
 	for (inq=l; inq!=NULL; inq=inq->prox){
-		printf("\nNome:%s\nData de entrada:%d/%d/%d\n Data de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
+		printf("\nNome:%s\nData de entrada:%d/%d/%d\nData de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
 		}
 }
 
@@ -154,22 +154,21 @@ void EditarInq(Lista*l){
     	printf("\n    #-------------------------------------------------------------------------#");
 	    printf("\n");
 		
-			printf(" Informe o novo nome do inquilino : ");
+			printf("Informe o novo nome do inquilino : ");
 			scanf(" %[^\n]",p->info->nome);
-			printf(" Informe a nova data do contrato : \n");
+			printf("Informe a nova data do contrato : ");
 			scanf("%d%d%d", &p->info->dia,&p->info->mes,&p->info->ano);
-			printf("Informe a nova duracao do contrato : \n");
+			printf("Informe a nova duracao do contrato : ");
 			scanf("%d%d%d", &p->info->d,&p->info->m,&p->info->a);
-			printf("Informe o novo documento -> CPF :\n");
+			printf("Informe o novo documento -> CPF :");
 			scanf("%d", &p->info->documento);
-			printf("Informe o numero novo do apartamento : \n");
+			printf("Informe o numero novo do apartamento : ");
 			scanf("%d", &p->info->apartamento);
 			printf("\n");
 		}
 		
 	}
 }
-
 void quant(Lista* l){
 	
 	Lista* p;
@@ -182,5 +181,4 @@ void quant(Lista* l){
 	}
 	printf("\n");
 	printf("A quantidade de inquilino e : %d\n ", i);
-	printf("\n");
 }
