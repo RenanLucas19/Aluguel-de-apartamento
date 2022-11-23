@@ -1,0 +1,97 @@
+
+
+Nome:Lucas
+Data de entrada:11998764/11998772/11998780
+ data de saida:11998768/11998776/11998784
+Documento:12365478
+Apartamento:122
+ Disponibilidade:sim
+codigo:1
+localizacao:pdf
+Inquilino:Lucas
+Preco:135.000000
+ 
+
+Nome:Lucas
+Data de entrada:1906220/1906228/1906236
+ data de saida:1906224/1906232/1906240
+Documento:1233654
+Apartamento:122
+ Disponibilidade:sim
+codigo:1
+localizacao:pdf
+Inquilino:Lucas
+Preco:1235.000000
+ 
+
+Nome:Amanda
+Data de entrada:1910116/1910124/1910132
+ data de saida:1910120/1910128/1910136
+Documento:1236545
+Apartamento:123
+ Disponibilidade:sim
+codigo:2
+localizacao:mossoro
+Inquilino:Amanda
+Preco:1456.000000
+ 
+
+Nome:lucas
+Data de entrada:11610980/11610988/11610996
+ data de saida:11610984/11610992/11611000
+Documento:123654
+Apartamento:122
+ Disponibilidade:sim
+codigo:1
+localizacao:pdf
+Inquilino:lucas
+Preco:5120.000000
+ 
+
+Nome:amanda
+Data de entrada:11609180/11609188/11609196
+ data de saida:11609184/11609192/11609200
+Documento:125436
+Apartamento:123
+ Disponibilidade:sim
+codigo:2
+localizacao:mossoro
+Inquilino:amanda
+Preco:154.000000
+ 
+
+Nome:eduardo
+Data de entrada:11609972/11609980/11609988
+ data de saida:11609976/11609984/11609992
+Documento:123456
+Apartamento:45
+ Disponibilidade:sim
+codigo:3
+localizacao:patus
+Inquilino:eduardo
+Preco:4513.000000
+ 
+
+Nome:lucas
+Data de entrada:1846116/1846124/1846132
+ data de saida:1846120/1846128/1846136
+Documento:123456
+Apartamento:12
+ Disponibilidade:sim
+codigo:1
+localizacao:sp
+Inquilino:lucas
+Preco:1356.000000
+ 
+
+Nome:amanda
+Data de entrada:1844316/1844324/1844332
+ data de saida:1844320/1844328/1844336
+Documento:1236445
+Apartamento:33
+ Disponibilidade:sim
+codigo:2
+localizacao:sp
+Inquilino:amanda
+Preco:1235.000000
+ 

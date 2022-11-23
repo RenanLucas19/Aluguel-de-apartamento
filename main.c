@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
-#include "Inquilino.h"
-#include "Apartamento.h"
+#include "Inquilino.c"
+#include "Apartamento.c"
 
 
 #define TITULO_OPCAO1 "ADICIONAR INQUILINO "
@@ -149,7 +149,7 @@ int main(void) {
     	printf("\n    #-------------------------------------------------------------------------#");
     	printf("\n");
     		ListarInquilino(CadastroInquilino);
-    		OrdenaInq (CadastroInquilino, codigo);
+    		
     		printf("\n");
     		
     	printf("\n");

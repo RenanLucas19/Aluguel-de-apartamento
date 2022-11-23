@@ -108,7 +108,7 @@ return l;
 void ListarInquilino ( Lista * l){
 	Lista *inq;
 	for (inq=l; inq!=NULL; inq=inq->prox){
-		printf("\nNome:%s\nData de entrada:%d/%d/%d\nData de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
+		printf("\nNome:%s\nData de entrada:%d/%d/%d\n Data de saida:%d/%d/%d\nDocumento:%d\nApartamento:%d\n " , inq->info->nome, inq->info->dia, inq->info->mes, inq->info->ano, inq->info->d,inq->info->m ,inq->info->a ,inq->info->documento ,inq->info->apartamento);
 		}
 }
 
@@ -122,13 +122,16 @@ Lista *lst_buscar(Lista *l){
 	 Lista* p;
 	 for (p=l; p!=NULL; p=p->prox){
 		 if(strcmp(p-> info->nome, nome)==0){
-		 	printf(" \nNome %s foi encontrado!\n", nome);
+			printf("\n");
+		 	printf(" \nInquilino %s foi encontrado ! \n", nome);
 		 	printf("\n\n");
 			 return p;
 		 }
 	 }
 	 
-	 printf("Nome nao encontrado!");
+	 printf("\n");
+	 printf("Inquilino nao encontrado !");
+	 printf("\n");
 
 	 return NULL;
 }
@@ -177,32 +180,7 @@ void quant(Lista* l){
 		i++;
 		
 	}
+	printf("\n");
 	printf("A quantidade de inquilino e : %d\n ", i);
-	
+	printf("\n");
 }
-
-Lista* OrdenaInq (Lista * l, int inq ){
-	Lista * novo;
-	Lista * antes = NULL;
-	Lista * p = l;
-	
-	while(p!=NULL && p->info<inq){
-		antes = p;
-		p = p->prox;
-		
-	}
-	novo = (Lista*)malloc(sizeof(Lista));
-	novo->info = inq;
-	if(antes == NULL){
-		novo->prox = l;
-		l = novo;
-	}
-	else{
-		
-		novo->prox = antes->prox;
-		antes->prox = novo;
-	}
-
-return l;	
-}
-
